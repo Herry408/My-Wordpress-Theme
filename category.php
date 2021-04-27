@@ -1,7 +1,8 @@
 <?php get_header();?>
-  <div class="blog-main">
+        <div class="col-md-8 blog-main">
           <div class="blog-post">
             <?php if(have_posts()): ?>   
+              <h2>Kumpulan Artikel: <?php single_cat_title();?></h2>
             <?php while(have_posts()): the_post();?>
             <hr class="featurette-divider" />
         <div class="row featurette">
@@ -19,13 +20,14 @@
           </div>
         </div>
           <?php endwhile; ?>
-           <?php
+          <?php
               if ( function_exists('wp_bootstrap_pagination') )
                 wp_bootstrap_pagination();
             ?>
             <?php else : ?>
                 <p><?php __('No Post Found'); ?></p>  
           <?php endif;?>
-          </div>
-          </div>
+          </div> <!--End blog-post-->
+         </div> <!--End blog-main--> 
+        <?php get_sidebar();?>             
 <?php get_footer();?>

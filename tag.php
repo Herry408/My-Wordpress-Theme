@@ -1,7 +1,9 @@
 <?php get_header();?>
-  <div class="blog-main">
+  <div class="row">
+        <div class="col-md-8 blog-main">
           <div class="blog-post">
             <?php if(have_posts()): ?>   
+              <h2>Tags: <?php  echo single_tag_title('',false);?></h2>
             <?php while(have_posts()): the_post();?>
             <hr class="featurette-divider" />
         <div class="row featurette">
@@ -19,13 +21,15 @@
           </div>
         </div>
           <?php endwhile; ?>
-           <?php
+          <?php
               if ( function_exists('wp_bootstrap_pagination') )
                 wp_bootstrap_pagination();
             ?>
             <?php else : ?>
                 <p><?php __('No Post Found'); ?></p>  
           <?php endif;?>
-          </div>
-          </div>
+          </div> <!--End blog-post-->
+         </div> <!--End blog-main--> 
+        <?php get_sidebar();?>             
+   </div> <!--End row-->
 <?php get_footer();?>
